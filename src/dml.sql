@@ -81,3 +81,29 @@ select course_name from students s join course c on c.id = s.course_id group by 
 select count(c.id),course_name from students s join course c on c.id = s.course_id group by course_name;
 --groupBy having
 select count(c.id),course_name from students s join course c on c.id=s.course_id group by course_name having count(course_name)<5;
+--max максимум санды чыгарат
+select max(age) from students;
+--min минимум санды чыгарат
+select min(age) from students;
+--avg орточо арифметикалык санын чыгарып берет
+select avg(age) from students;
+--round тегеректеп берет
+select round( avg(age)) from students;
+--sum бардыгын кошуп берет
+select sum(age) from students;
+--coalesce
+select first_name,coalesce(course_name,'kiyin tandayt') from students s join course c on c.id = s.course_id;
+
+select now();
+select now()::date;
+select now()::time;
+set time zone'asia/bishkek';
+--extract ажыратып берет
+select extract(year from now());
+select extract(month from now());
+select extract(day from now());
+select extract(century from now());
+--delete
+delete from students where id in (1,2);
+--update
+update students set first_name='Jyldyz' where first_name='Sattarali';
